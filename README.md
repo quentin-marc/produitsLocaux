@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Produits locaux
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Créateurs: Quentin MARC, Quentin de Andria, Louis Rob
 
 ## Available Scripts
 

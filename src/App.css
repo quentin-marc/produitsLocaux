@@ -3,6 +3,18 @@
   --vert: #4ea994;
   --bleu: #2c363f;
   --bleu2: #03546d;
+
+  --espaceMin: 5px;
+  --espacePetit: 10px;
+  --espaceNormal: 20px;
+  --espaceGrand: 50px;
+  --espaceMax: 100px;
+
+  --radiusMin: 5px;
+  --radiusNormal: 10px;
+  --radiusMax: 25px;
+
+  --sizeImportant: 20px;
 }
 
 .App {

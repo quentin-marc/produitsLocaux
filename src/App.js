@@ -11,7 +11,7 @@ var listeProduits = [
     type: "fruit"
   },
   {
-    nom: 'Beurre',
+    nom: 'Beurre doux (250g)',
     image: 'beurre.svg',
     prix: 2.3,
     unite: "unite",
