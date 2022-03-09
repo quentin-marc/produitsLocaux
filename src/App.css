@@ -1,0 +1,19 @@
+:root {
+  --bgMain: #f8f6f4;
+  --vert: #4ea994;
+  --bleu: #2c363f;
+  --bleu2: #03546d;
+}
+
+.App {
+  min-height: 100vh;
+  background-color: var(--bgMain);
+}
+
+#mainContener{
+  width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
