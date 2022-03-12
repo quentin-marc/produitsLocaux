@@ -25,6 +25,9 @@
 #mainContener{
   width: 1200px;
   margin: auto;
+}
+
+#nosProduits{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
