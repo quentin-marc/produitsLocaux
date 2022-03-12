@@ -1,5 +1,6 @@
 import './App.css';
 import Produit from './produit/Produit.jsx';
+import CreneauxRecuperation from './creneauxRecuperation/creneauxRecuperation.jsx';
 
 //listing en dur des produits disponibles
 var listeProduits = [
@@ -61,9 +62,13 @@ function App() {
         Header
       </header>
       <div id="mainContener">
-        {listeProduits.map((produit, i) => {       
-          return (<Produit donnees={produit} key={i} />) 
-        })}
+        <div id="nosProduits">
+          {listeProduits.map((produit, i) => {       
+            return (<Produit donnees={produit} key={i} />) 
+          })}
+        </div>
+        <button>Choisir un créneau</button>
+        <CreneauxRecuperation></CreneauxRecuperation>
       </div>
       <footer className="footer">
         Footer

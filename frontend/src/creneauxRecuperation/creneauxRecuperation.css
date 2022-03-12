@@ -1,0 +1,23 @@
+#boxCreneauxRecuperation{
+    text-align: center;
+}
+
+#creneauxRecuperation{
+    display: flex;
+    justify-content: space-around;
+    margin-top: var(--espaceGrand);
+}
+
+.nomJour{
+    font-size: var(--sizeImportant);
+    font-weight: 500;
+    margin-bottom: var(--espaceMin);
+}
+
+.creneau{
+    border: solid;
+    margin: var(--espaceNormal) var(--espacePetit);
+    padding: var(--espaceNormal);
+    width: 140px;
+    border-radius: var(--radiusNormal);
+}
