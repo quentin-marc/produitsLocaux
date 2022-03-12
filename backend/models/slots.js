@@ -1,20 +1,20 @@
 const mongoose = require("mongoose");
 
 const SlotSchema = new mongoose.Schema({
-    id: {
+    day: {
         type: String,
-        required: [true, "Please provide the product id (name)"],
-        unique: true,
+        required: [true, "Please provide the day"],
+        unique: true
     },
-    price: {
-        type: Number,
-        required: [true, "Please provide the product's price"],
-    },
-    quantification: {
+    date: {
         type: String,
-        required: [true, "Please provide the product's quantification"],
-        match: "unité" || "kg" || "botte",
-    }
+        required: [true, "Please provide the date of the day"]
+    },
+    slots: [
+            {
+                type: String
+            }
+    ]
 });
 
 module.exports = mongoose.model("Slot", SlotSchema);

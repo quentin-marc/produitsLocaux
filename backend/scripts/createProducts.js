@@ -1,3 +1,7 @@
+// This script fill products in the DB.
+// Example of use:
+// >> node ./scripts/createProducts.js
+
 const mongoose = require("mongoose");
 const autoload = require("auto-load");
 
@@ -105,10 +109,6 @@ const products = [
         quantification: "unité"
     },
 ];
-
-// This script fill products in the DB.
-// Example of use:
-// >> node ./scripts/createProducts.js
 
 const ProductModel = mongoose.model("Product");
 

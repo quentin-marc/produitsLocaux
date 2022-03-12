@@ -1,3 +1,7 @@
+// This script fill slots in the DB.
+// Example of use :
+// >> node ./scripts/createSlots.js
+
 const mongoose = require("mongoose");
 const autoload = require("auto-load");
 
@@ -8,120 +12,51 @@ autoload(`${__dirname}/../models`);
 console.info("Connecting to MongoDB.", config.database.uri);
 mongoose.connect(config.database.uri);
 
-const products = [
+const SlotModel = mongoose.model("Slot");
+
+var listingSlots = [
     {
-        id: "lait cru",
-        price: 1.5,
-        quantification: "unité"
+        day: "lundi",
+        date: "14 / 03",
+        slots: ["8h00", "9h00", "10h00", "11h00", "12h00"]
     },
     {
-        id: "carotte",
-        price: 1.8,
-        quantification: "kg"
+        day: "mardi",
+        date: "15 / 03",
+        slots: ["8h00", "9h00", "10h00", "11h00", "12h00"]
     },
     {
-        id: "courge",
-        price: 1.6,
-        quantification: "kg"
+        day: "mercredi",
+        date: "16 / 03",
+        slots: ["8h00", "9h00", "10h00", "11h00", "12h00"]
     },
     {
-        id: "céléri",
-        price: 2.2,
-        quantification: "kg"
+        day: "jeudi",
+        date: "17 / 03",
+        slots: ["8h00", "9h00", "10h00", "11h00", "12h00"]
     },
     {
-        id: "chou",
-        price: 1.6,
-        quantification: "kg"
+        day: "vendredi",
+        date: "18 / 03",
+        slots: ["8h00", "9h00", "10h00", "11h00", "12h00"]
     },
     {
-        id: "blette",
-        price: 2.2,
-        quantification: "botte"
-    },
-    {
-        id: "oignons blancs",
-        price: 1.4,
-        quantification: "kg"
-    },
-    {
-        id: "poireaux",
-        price: 2.2,
-        quantification: "kg"
-    },
-    {
-        id: "navet",
-        price: 1.8,
-        quantification: "botte"
-    },
-    {
-        id: "salade",
-        price: 1.5,
-        quantification: "unité"
-    },
-    {
-        id: "pomme de terre",
-        price: 2.2,
-        quantification: "kg"
-    },
-    {
-        id: "radi",
-        price: 1.6,
-        quantification: "botte"
-    },
-    {
-        id: "chou bruxelle",
-        price: 3.2,
-        quantification: "kg"
-    },
-    {
-        id: "pomme",
-        price: 2.2,
-        quantification: "kg"
-    },
-    {
-        id: "pomme pour compote",
-        price: 0.75,
-        quantification: "kg"
-    },
-    {
-        id: "endive",
-        price: 3.6,
-        quantification: "kg"
-    },
-    {
-        id: "oeuf",
-        price: 0.35,
-        quantification: "unité"
-    },
-    {
-        id: "beurre (250g)",
-        price: 3.7,
-        quantification: "unité"
-    },
-    {
-        id: "confiture",
-        price: 3.6,
-        quantification: "unité"
-    },
+        day: "samedi",
+        date: "19 / 03",
+        slots: ["8h00", "9h00", "10h00", "11h00", "12h00"]
+    }
 ];
 
-// This script fill products in the DB.
-// Example of use:
-// >> node ./scripts/createProducts.js
-
-const ProductModel = mongoose.model("Product");
-
 try {
-    products.forEach(product => {
-        new ProductModel({
-            id: product.id,
-            price: product.price,
-            quantification: product.quantification
+    listingSlots.forEach(day => {
+        new SlotModel({
+            day: day.day,
+            date: day.date,
+            slots: day.slots
           }).save()
-          .then(product => {
+          .then(day => {
             console.info("Following code created successfully");
-            console.info(product);
+            console.info(day);
           })
           .catch(e => console.error(e)); 
     });
