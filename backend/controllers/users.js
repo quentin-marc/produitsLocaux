@@ -23,14 +23,17 @@ exports.newOrder = async (req, res, next) => {
     try {
         let { userId, products } = req.body;
 
-        const newOrder = await UserModel.findByIdAndUpdate(userId, {
-            $push: {
-                products: {
-                    date: new Date(),
-                    products
+        const newOrder = UserModel.findByIdAndUpdate(
+            userId,
+            {
+                $push: {
+                    products: {
+                        date: new Date(),
+                        products
+                    }
                 }
             }
-        });
+        );
 
         res.status(201).json({
             success: true,

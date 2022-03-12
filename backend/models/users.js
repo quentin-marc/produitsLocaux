@@ -22,12 +22,12 @@ const UserSchema = new mongoose.Schema({
             products: [
                 {
                     product: {
-                        type: mongoose.Schema.Types.ObjectId,
+                        type: mongoose.Schema.ObjectId,
                         ref: "Product"
                     },
                     occurences: {
                         type: Number,
-                        required: [true, "Please provide an occurences of the wanted product"]
+                        required: [true, "Please provide an occurence of the wanted product"]
                     }
                 }
             ],
