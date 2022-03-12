@@ -1,12 +1,14 @@
 :root {
   --bgMain: #f8f6f4;
   --vert: #4ea994;
+  --vertHover: #479b88;
+  --white: white;
   --bleu: #2c363f;
   --bleu2: #03546d;
 
   --espaceMin: 5px;
   --espacePetit: 10px;
-  --espaceNormal: 20px;
+  --espaceNormal: 15px;
   --espaceGrand: 50px;
   --espaceMax: 100px;
 
@@ -31,4 +33,30 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+button{
+  background-color: var(--vert);
+  color: var(--white);
+  border: none;
+  margin: var(--espaceNormal) auto;
+  padding: var(--espaceNormal) var(--espaceGrand);
+  font-size: var(--sizeImportant);
+  border-radius: var(--radiusNormal);
+  display: block;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: var(--vertHover);
+}
+
+input[type=text]{
+  font-size: var(--sizeImportant);
+  padding: var(--espacePetit) var(--espaceNormal);
+  display: block;
+  margin: var(--espaceNormal) auto;
+  width: 500px;
+  border-radius: var(--radiusNormal);
+  border-width: 1.5px;
 }

@@ -47,8 +47,8 @@ const CreneauxRecuperation = ({ }) => {
             </div>
             <h1>Comment pouvons-nous vous contacter ?</h1>
             <div>Ces informations ne seront utilisées que pour la gestion de cette commande. Elles ne seront pas utilisées à des fins publicitaires.</div>
-            <input type='email'></input>
-            <input type='phone'></input>
+            <input type='text' placeholder='benoit.dupont@gmail.com'></input>
+            <input type='text' placeholder='06 34 52 12 13'></input>
             <button>Valider ma commande</button>
         </div>
     );
