@@ -75,6 +75,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 Made with npm v16.13.2
 
-Do not forget to `npm i`
+Do not forget to `npm i` and to install mongoDB.
 
-In the project directory run: `DEBUG=myapp:* npm start`. The server is then listening at http://localhost:3001.
+In the project directory run: `npm start`. The server is then listening at http://localhost:3001.
