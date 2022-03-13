@@ -1,5 +1,7 @@
 import './creneauxRecuperation.css';
 
+import React, { useState } from 'react';
+
 const CreneauxRecuperation = ({ }) => {
 
     var listeCreneaux = [
@@ -28,7 +30,9 @@ const CreneauxRecuperation = ({ }) => {
             dateJour: "19 / 03",
             creaneauxDuJour: ["8h00", "9h00", "10h00", "11h00", "12h00"]
         }
-    ]
+    ];
+
+    const [creneauSelectionne, setCreneauSelectionne] = useState({jour: -1, creneau: -1});
 
     return(
         <div id='boxCreneauxRecuperation'>
@@ -40,7 +44,10 @@ const CreneauxRecuperation = ({ }) => {
                                 <div className='nomJour'>{jour.nomJour}</div>
                                 <div className='dateJour'>{jour.dateJour}</div>
                                 {jour.creaneauxDuJour.map((creneau, indexCreneau) => {
-                                    return <div className='creneau' key={indexCreneau}>{creneau}</div>
+                                    return <div className='creneau' key={indexCreneau} onClick={e => setCreneauSelectionne({jour:index, creneau:indexCreneau})}>
+                                            { (creneauSelectionne.jour == index && creneauSelectionne.creneau == indexCreneau) ? <img className='cocheCreneau' src='./images/coche.svg' alt="Produit selectionné"></img> : null }
+                                            {creneau}
+                                        </div>
                                 })}
                             </div>
                 })}

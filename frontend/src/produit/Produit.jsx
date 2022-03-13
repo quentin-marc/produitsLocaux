@@ -9,7 +9,7 @@ const Produit = ({ donnees }) => {
         background: 'center / cover no-repeat url("http://localhost:3000/images/'+donnees.image+'")'
     };
 
-    const [nbProduits, setNbProduits] = useState("");
+    const [nbProduits, setNbProduits] = useState(0);
     console.log(nbProduits);
 
     return(

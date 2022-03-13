@@ -20,4 +20,20 @@
     padding: var(--espaceNormal);
     width: 140px;
     border-radius: var(--radiusNormal);
+    cursor: pointer;
+    position: relative;
+}
+
+.creneau:hover{
+    transform: scale(1.05);
+    transition: 0.25s;
+}
+
+.cocheCreneau{
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 40px;
+    height: 40px;
+    background: var(--bgMain);
 }
