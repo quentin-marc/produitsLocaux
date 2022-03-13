@@ -45,7 +45,7 @@ const FormulaireCreneaux = ({ }) => {
                                 <div className='dateJour'>{jour.dateJour}</div>
                                 {jour.creaneauxDuJour.map((creneau, indexCreneau) => {
                                     return <div className='creneau' key={indexCreneau} onClick={e => setCreneauSelectionne({jour:index, creneau:indexCreneau})}>
-                                            { (creneauSelectionne.jour == index && creneauSelectionne.creneau == indexCreneau) ? <img className='cocheCreneau' src='./images/coche.svg' alt="Produit selectionné"></img> : null }
+                                            { (creneauSelectionne.jour === index && creneauSelectionne.creneau === indexCreneau) ? <img className='cocheCreneau' src='./images/coche.svg' alt="Produit selectionné"></img> : null }
                                             {creneau}
                                         </div>
                                 })}
