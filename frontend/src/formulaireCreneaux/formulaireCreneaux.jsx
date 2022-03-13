@@ -37,7 +37,7 @@ const FormulaireCreneaux = ({ }) => {
     return(
         <div id='formulaireCreneaux'>
             <h1>Quand souhaitez-vous récupérer vos courses ?</h1>
-            <div>Adresse de récupération: TODO mettre adresse</div>
+            <div>Adresse de récupération: 24 Quai Victor Augagneur (prenez la rue Chaponnay, toquez à la première porte à gauche juste après la pharmacie qui fait l'angle)</div>
             <div id='creneauxRecuperation'>
                 {listeCreneaux.map((jour, index) => {
                     return <div className='jour' key={index}>
