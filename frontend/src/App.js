@@ -1,59 +1,6 @@
 import './App.css';
-import Produit from './produit/Produit.jsx';
-import CreneauxRecuperation from './creneauxRecuperation/creneauxRecuperation.jsx';
-
-//listing en dur des produits disponibles
-var listeProduits = [
-  {
-    nom: 'Pommes',
-    image: 'pommes.svg',
-    prix: 2.3,
-    unite: "kg",
-    type: "fruit"
-  },
-  {
-    nom: 'Beurre doux (250g)',
-    image: 'beurre.svg',
-    prix: 2.3,
-    unite: "unite",
-    type: "cremerie"
-  },
-  {
-    nom: 'Blettes',
-    image: 'blettes.svg',
-    prix: 2.3,
-    unite: "kg",
-    type: "legumes"
-  },
-  {
-    nom: 'Carottes',
-    image: 'carottes.svg',
-    prix: 2.3,
-    unite: "kg",
-    type: "legumes"
-  },
-  {
-    nom: 'Celeri',
-    image: 'celeri.svg',
-    prix: 2.3,
-    unite: "kg",
-    type: "legumes"
-  },
-  {
-    nom: 'Chou',
-    image: 'chou.svg',
-    prix: 2.3,
-    unite: "unite",
-    type: "legumes"
-  },
-  {
-    nom: 'Choux de Bruxelle',
-    image: 'choux_bruxelle.svg',
-    prix: 2.3,
-    unite: "kg",
-    type: "legumes"
-  }
-];
+import FormulaireCreneaux from './formulaireCreneaux/formulaireCreneaux.jsx';
+import FormulaireProduits from './formulaireProduits/formulaireProduits.jsx';
 
 function App() {
   return (
@@ -62,13 +9,8 @@ function App() {
         Header
       </header>
       <div id="mainContener">
-        <div id="nosProduits">
-          {listeProduits.map((produit, i) => {       
-            return (<Produit donnees={produit} key={i} />) 
-          })}
-        </div>
-        <button>Choisir un créneau</button>
-        <CreneauxRecuperation></CreneauxRecuperation>
+        <FormulaireProduits></FormulaireProduits>
+        <FormulaireCreneaux></FormulaireCreneaux>
       </div>
       <footer className="footer">
         Footer
