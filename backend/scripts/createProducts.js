@@ -14,6 +14,11 @@ mongoose.connect(config.database.uri);
 
 const products = [
     {
+        id: "panier",
+        price: 24,
+        quantification: "unité"
+    },
+    {
         id: "lait cru",
         price: 1.5,
         quantification: "unité"
