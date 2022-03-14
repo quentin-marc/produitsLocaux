@@ -38,3 +38,8 @@
     height: 40px;
     background: var(--bgMain);
 }
+
+.formBox{
+    margin-top: -20px;
+    margin-bottom: 70px;
+}

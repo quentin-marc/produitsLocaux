@@ -65,7 +65,9 @@ const FormulaireProduits = ({ }) => {
                 return (<Produit donnees={produit} key={i} />) 
             })}
             </div>
-            <button onClick={etapeSuivante}>Choisir un créneau</button>
+            <div className='boxButtons'>
+                <button onClick={etapeSuivante}>Choisir un créneau</button>
+            </div>
         </div>
     );
 };

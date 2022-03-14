@@ -1,5 +1,6 @@
 :root {
-  --bgMain: #f8f6f4;
+  /* --bgMain: #f8f6f430; */
+  --bgMain: #fcfbfb;
   --vert: #4ea994;
   --vertHover: #479b88;
   --white: white;
@@ -22,6 +23,19 @@
 .App {
   min-height: 100vh;
   background-color: var(--bgMain);
+  color: var(--bleu);
+}
+
+h1{
+  margin-top: var(--espaceMax);
+}
+
+.subtitle{
+  font-size: var(--sizeImportant);
+  width: 80%;
+  line-height: 1.5em;
+  margin: auto;
+  margin-bottom: var(--espaceGrand);
 }
 
 #mainContener{
@@ -35,15 +49,21 @@
   flex-wrap: wrap;
 }
 
+.boxButtons{
+  margin: var(--espaceGrand) 0;
+  display: flex;
+  justify-content: center;
+}
+
 button{
   background-color: var(--vert);
   color: var(--white);
   border: none;
-  margin: var(--espaceNormal) auto;
   padding: var(--espaceNormal) var(--espaceGrand);
   font-size: var(--sizeImportant);
   border-radius: var(--radiusNormal);
-  display: block;
+  margin-left: var(--espaceNormal);
+  margin-right: var(--espaceNormal);
   cursor: pointer;
 }
 
@@ -53,10 +73,27 @@ button:hover{
 
 input[type=text]{
   font-size: var(--sizeImportant);
-  padding: var(--espacePetit) var(--espaceNormal);
+  padding: var(--espacePetit) var(--espaceNormal) var(--espacePetit) var(--espaceGrand);
   display: block;
-  margin: var(--espaceNormal) auto;
+  margin: 0 auto;
   width: 500px;
   border-radius: var(--radiusNormal);
   border-width: 1.5px;
+}
+
+.iconForm{
+  position: relative;
+  top: 39px;
+  left: -255px;
+}
+
+a{
+  cursor: pointer;
+  color: var(--vert);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover{
+  text-decoration: underline;
 }

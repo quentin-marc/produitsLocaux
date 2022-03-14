@@ -4,6 +4,11 @@ import React, { useState } from 'react';
 
 const FormulaireCreneaux = ({ }) => {
 
+    function retourChoixProduits(){
+        document.getElementById('formulaireProduits').style.display = "block";
+        document.getElementById('formulaireCreneaux').style.display = "none";
+    }
+
     var listeCreneaux = [
         {
             nomJour: "lundi",
@@ -37,7 +42,7 @@ const FormulaireCreneaux = ({ }) => {
     return(
         <div id='formulaireCreneaux'>
             <h1>Quand souhaitez-vous récupérer vos courses ?</h1>
-            <div>Adresse de récupération: 24 Quai Victor Augagneur (prenez la rue Chaponnay, toquez à la première porte à gauche juste après la pharmacie qui fait l'angle)</div>
+            <div className='subtitle'>Adresse de récupération: <a href='https://www.google.com/maps/place/24+Quai+Victor+Augagneur,+69003+Lyon/@45.7579468,4.8388607,17z/data=!3m1!4b1!4m5!3m4!1s0x47f4ea5a3982a907:0xd76fa2c965fd54fb!8m2!3d45.7579431!4d4.8410494?hl=fr' target="_blank">24 Quai Victor Augagneur, 69 003 Lyon</a> (prenez la rue Chaponnay, toquez à la première porte à gauche juste après la pharmacie qui fait l'angle).</div>
             <div id='creneauxRecuperation'>
                 {listeCreneaux.map((jour, index) => {
                     return <div className='jour' key={index}>
@@ -53,10 +58,17 @@ const FormulaireCreneaux = ({ }) => {
                 })}
             </div>
             <h1>Comment pouvons-nous vous contacter ?</h1>
-            <div>Ces informations ne seront utilisées que pour la gestion de cette commande. Elles ne seront pas utilisées à des fins publicitaires.</div>
-            <input type='text' placeholder='benoit.dupont@gmail.com'></input>
-            <input type='text' placeholder='06 34 52 12 13'></input>
-            <button>Valider ma commande</button>
+            <div className='subtitle'>Ces informations seront seulement utilisées pour la gestion de cette commande. Elles ne seront pas utilisées à des fins publicitaires.</div>
+            <div className='formBox'>
+                <span className="material-icons-outlined iconForm">email</span>
+                <input type='text' placeholder='benoit.dupont@gmail.com'></input>
+                <span className="material-icons-outlined iconForm">phone_in_talk</span>
+                <input type='text' placeholder='06 34 52 12 13'></input>
+            </div>
+            <div className='boxButtons'>
+                <button onClick={retourChoixProduits}>Choisir d'autres produits</button>
+                <button>Valider ma commande</button>
+            </div>
         </div>
     );
 };
