@@ -12,7 +12,7 @@ const Footer = () => {
             </div>  
             <div className='createur'>
                 <img className='photoCreateur' src='./images/qandria.png' alt='Quentin De Andria'></img>
-                <div className='nomCreateur'>Quentin<br></br>De Andria</div>
+                <div className='nomCreateur'>Quentin<br></br>de Andria</div>
             </div> 
             <div className='createur'>
                 <img className='photoCreateur' src='./images/qmarc.png' alt='Quentin MARC'></img>
