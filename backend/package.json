@@ -6,6 +6,9 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www"
   },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
   "dependencies": {
     "auto-load": "^3.0.4",
     "cookie-parser": "~1.4.4",
@@ -15,7 +18,6 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "mongoose": "^6.2.6",
-    "morgan": "~1.9.1",
-    "nodemon": "^2.0.15"
+    "morgan": "~1.9.1"
   }
 }
