@@ -1,20 +1,16 @@
 import './App.css';
 import FormulaireCreneaux from './formulaireCreneaux/formulaireCreneaux.jsx';
 import FormulaireProduits from './formulaireProduits/formulaireProduits.jsx';
+import Footer from './footer/footer.jsx';
 
 function App() {
   return (
     <div className="App">
-      <header className="header">
-        Header
-      </header>
       <div id="mainContener">
         <FormulaireProduits></FormulaireProduits>
         <FormulaireCreneaux></FormulaireCreneaux>
       </div>
-      <footer className="footer">
-        Footer
-      </footer>
+      <Footer></Footer>
     </div>
   );
 }
