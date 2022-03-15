@@ -4,6 +4,6 @@
 module.exports = {
     database: {
         // MongoDB Database Connection
-        uri: "mongodb://localhost:27017/produitsLocaux",
+        uri: "mongodb://127.0.0.1:27017/produitsLocaux",
     },
 };

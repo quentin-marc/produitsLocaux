@@ -16,120 +16,151 @@ const products = [
     {
         id: "panier",
         price: 24,
-        quantification: "unité"
+        quantification: "unité",
+        image: "?"
     },
     {
         id: "lait cru",
         price: 1.5,
-        quantification: "unité"
+        quantification: "unité",
+        image: "lait.svg"
     },
     {
         id: "carotte",
         price: 1.8,
-        quantification: "kg"
+        quantification: "kg",
+        image: "carottes.svg"
     },
     {
         id: "courge",
         price: 1.6,
-        quantification: "kg"
+        quantification: "kg",
+        image: "courge.svg"
     },
     {
         id: "céléri",
         price: 2.2,
-        quantification: "kg"
+        quantification: "kg",
+        image: "celeri.svg"
     },
     {
         id: "chou",
         price: 1.6,
-        quantification: "kg"
+        quantification: "kg",
+        image: "chou.svg"
     },
     {
         id: "blette",
         price: 2.2,
-        quantification: "botte"
+        quantification: "botte",
+        image: "blettes.svg"
     },
     {
         id: "oignons blancs",
         price: 1.4,
-        quantification: "kg"
+        quantification: "kg",
+        image: "oignons.svg"
     },
     {
         id: "poireaux",
         price: 2.2,
-        quantification: "kg"
+        quantification: "kg",
+        image: "poireaux.svg"
     },
     {
         id: "navet",
         price: 1.8,
-        quantification: "botte"
+        quantification: "botte",
+        image: "navet.svg"
     },
     {
         id: "salade",
         price: 1.5,
-        quantification: "unité"
+        quantification: "unité",
+        image: "salade.svg"
     },
     {
         id: "pomme de terre",
         price: 2.2,
-        quantification: "kg"
+        quantification: "kg",
+        image: "pdt.svg"
     },
     {
         id: "radi",
         price: 1.6,
-        quantification: "botte"
+        quantification: "botte",
+        image: "radis.svg"
     },
     {
         id: "chou bruxelle",
         price: 3.2,
-        quantification: "kg"
+        quantification: "kg",
+        image: "choux_bruxelle.svg"
     },
     {
         id: "pomme",
         price: 2.2,
-        quantification: "kg"
+        quantification: "kg",
+        image: "pommes.svg"
     },
     {
         id: "pomme pour compote",
         price: 0.75,
-        quantification: "kg"
+        quantification: "kg",
+        image: "pommes_compote.svg"
     },
     {
         id: "endive",
         price: 3.6,
-        quantification: "kg"
+        quantification: "kg",
+        image: "endives.svg"
     },
     {
         id: "oeuf",
         price: 0.35,
-        quantification: "unité"
+        quantification: "unité",
+        image: "oeufs.svg"
     },
     {
         id: "beurre (250g)",
         price: 3.7,
-        quantification: "unité"
+        quantification: "unité",
+        image: "beurre.svg"
     },
     {
         id: "confiture",
         price: 3.6,
-        quantification: "unité"
+        quantification: "unité",
+        image: "?"
     },
 ];
 
 const ProductModel = mongoose.model("Product");
 
 try {
-    products.forEach(product => {
-        new ProductModel({
-            id: product.id,
-            price: product.price,
-            quantification: product.quantification
-          }).save()
-          .then(product => {
-            console.info("Following code created successfully");
-            console.info(product);
-          })
-          .catch(e => console.error(e)); 
+    mongoose.connection.once("open", function() {
+        console.log("MongoDB connected successfully");
+        mongoose.connection.db.dropCollection(
+            "products",
+            function(err, result) {
+                console.log("Products droped");
+                
+                products.forEach(product => {
+                    new ProductModel({
+                        id: product.id,
+                        price: product.price,
+                        quantification: product.quantification,
+                        image: product.image
+                      }).save()
+                      .then(product => {
+                        console.info("Product added: " + product.id);
+                      })
+                      .catch(e => console.error(e)); 
+                });
+            }
+        );
     });
+
 } catch (e) {
   console.error(e);
 }
