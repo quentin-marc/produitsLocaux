@@ -21,12 +21,13 @@ exports.newUser = async (req, res, next) => {
 
 exports.newOrder = async (req, res, next) => {
     try {
-        let { userId, products } = req.body;
+        let { userId, products, pickupDate } = req.body;
 
         const user = await UserModel.findById(userId);
 
         user.orders.push({
             date: new Date(),
+            pickupDate,
             products
         });
         user.save();
