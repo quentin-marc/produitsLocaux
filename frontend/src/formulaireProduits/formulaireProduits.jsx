@@ -4,7 +4,7 @@ import Produit from './produit/Produit.jsx';
 
 import React, { useState, useEffect } from 'react';
 
-const FormulaireProduits = ({ }) => {
+const FormulaireProduits = () => {
     const [listeProduits, setListeProduits] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -83,7 +83,7 @@ const FormulaireProduits = ({ }) => {
     return(
         <div id='formulaireProduits'>
             <h1>Commandez vos produits locaux depuis chez vous</h1>
-            <div className='subtitle'>Bienvenue sur NOM SITE, nous sommes une petite équipe d’ingénieurs voulant aider à (re)développer les circuits courts. Ce drive vient juste de naitre, le projet va s'améliorer progressivement.</div>
+            <div className='subtitle'>Bienvenue sur NOM SITE, nous sommes <a href='#footer'>une petite équipe d’ingénieurs</a> voulant aider à (re)développer les circuits courts. Ce drive vient juste de naitre, le projet va s'améliorer progressivement.</div>
             <div id="nosProduits">
                 {!listeProduits ? null : listeProduits.map((produit, i) => {       
                     return (<Produit donnees={produit} key={i} />) 
