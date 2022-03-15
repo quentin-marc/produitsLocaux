@@ -20,14 +20,18 @@
   --sizeImportant: 20px;
 }
 
+body{
+  background-color: var(--bgMain);
+}
+
 .App {
   min-height: 100vh;
-  background-color: var(--bgMain);
   color: var(--bleu);
 }
 
 h1{
   margin-top: var(--espaceMax);
+  text-align: center;
 }
 
 .subtitle{
@@ -36,11 +40,18 @@ h1{
   line-height: 1.5em;
   margin: auto;
   margin-bottom: var(--espaceGrand);
+  text-align: center;
 }
 
 #mainContener{
   width: 1200px;
   margin: auto;
+}
+
+footer{
+  margin-top: 150px;
+  background-color: #f5f5f5;
+  padding: var(--espaceGrand);
 }
 
 #nosProduits{
@@ -96,4 +107,23 @@ a{
 
 a:hover{
   text-decoration: underline;
+}
+
+.createurs{
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+
+.photoCreateur{
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  display: block;
+}
+
+.nomCreateur{
+  margin-top: var(--espacePetit);
 }
