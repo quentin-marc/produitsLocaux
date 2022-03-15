@@ -1,20 +1,18 @@
 import './App.css';
 import FormulaireCreneaux from './formulaireCreneaux/formulaireCreneaux.jsx';
 import FormulaireProduits from './formulaireProduits/formulaireProduits.jsx';
+import Footer from './footer/footer.jsx';
+import React, { useState } from 'react';
 
 function App() {
+  const [listeCourse, setListeCourse] = useState({});
   return (
     <div className="App">
-      <header className="header">
-        Header
-      </header>
       <div id="mainContener">
-        <FormulaireProduits></FormulaireProduits>
-        <FormulaireCreneaux></FormulaireCreneaux>
+        <FormulaireProduits listeCourse={listeCourse} setListeCourse={setListeCourse}></FormulaireProduits>
+        <FormulaireCreneaux listeCourse={listeCourse}></FormulaireCreneaux>
       </div>
-      <footer className="footer">
-        Footer
-      </footer>
+      <Footer></Footer>
     </div>
   );
 }

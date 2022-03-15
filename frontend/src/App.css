@@ -20,14 +20,18 @@
   --sizeImportant: 20px;
 }
 
+body{
+  background-color: var(--bgMain);
+}
+
 .App {
   min-height: 100vh;
-  background-color: var(--bgMain);
   color: var(--bleu);
 }
 
 h1{
   margin-top: var(--espaceMax);
+  text-align: center;
 }
 
 .subtitle{
@@ -36,6 +40,7 @@ h1{
   line-height: 1.5em;
   margin: auto;
   margin-bottom: var(--espaceGrand);
+  text-align: center;
 }
 
 #mainContener{

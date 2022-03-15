@@ -1,3 +1,4 @@
+var cors = require('cors')
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -12,12 +13,18 @@ const { connect } = require('http2');
 
 const connectDB = require('./config/db.js');
 
+var corsOptions = {
+  origin: ['http://127.0.0.1:3000','http://localhost:3000'],
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+app.use(cors(corsOptions));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

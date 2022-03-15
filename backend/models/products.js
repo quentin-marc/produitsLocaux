@@ -14,6 +14,10 @@ const ProductSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please provide the product's quantification"],
         enum: ["unité", "kg", "botte",]
+    },
+    image: {
+        type: String,
+        required: [true, "Please provide the product's image"],
     }
 });
 
