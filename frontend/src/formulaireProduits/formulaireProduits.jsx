@@ -4,7 +4,7 @@ import Produit from './produit/Produit.jsx';
 
 import React, { useState, useEffect } from 'react';
 
-const FormulaireProduits = () => {
+const FormulaireProduits = ({listeCourse, setListeCourse}) => {
     const [listeProduits, setListeProduits] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -14,53 +14,6 @@ const FormulaireProduits = () => {
         document.getElementById('formulaireProduits').style.display = "none";
         document.getElementById('formulaireCreneaux').style.display = "block";
     }
-
-    //listing en dur des produits disponibles
-    // var listeProduits = [
-    //     {
-    //         nom: 'Pommes',
-    //         image: 'pommes.svg',
-    //         prix: 2.3,
-    //         unite: "kg",
-    //         type: "fruit"
-    //     },{
-    //         nom: 'Beurre doux (250g)',
-    //         image: 'beurre.svg',
-    //         prix: 2.3,
-    //         unite: "unite",
-    //         type: "cremerie"
-    //     },{
-    //         nom: 'Blettes',
-    //         image: 'blettes.svg',
-    //         prix: 2.3,
-    //         unite: "kg",
-    //         type: "legumes"
-    //     },{
-    //         nom: 'Carottes',
-    //         image: 'carottes.svg',
-    //         prix: 2.3,
-    //         unite: "kg",
-    //         type: "legumes"
-    //     },{
-    //         nom: 'Celeri',
-    //         image: 'celeri.svg',
-    //         prix: 2.3,
-    //         unite: "kg",
-    //         type: "legumes"
-    //     },{
-    //         nom: 'Chou',
-    //         image: 'chou.svg',
-    //         prix: 2.3,
-    //         unite: "unite",
-    //         type: "legumes"
-    //     },{
-    //         nom: 'Choux de Bruxelle',
-    //         image: 'choux_bruxelle.svg',
-    //         prix: 2.3,
-    //         unite: "kg",
-    //         type: "legumes"
-    //     }
-    // ];
     
     useEffect(() => {
         const getListeProduits = async () => {
@@ -86,7 +39,7 @@ const FormulaireProduits = () => {
             <div className='subtitle'>Bienvenue sur NOM SITE, nous sommes <a href='#footer'>une petite équipe d’ingénieurs</a> voulant aider à (re)développer les circuits courts. Ce drive vient juste de naitre, le projet va s'améliorer progressivement.</div>
             <div id="nosProduits">
                 {!listeProduits ? null : listeProduits.map((produit, i) => {       
-                    return (<Produit donnees={produit} key={i} />) 
+                    return (<Produit donnees={produit} key={i} listeCourse={listeCourse} setListeCourse={setListeCourse}/>) 
                 })}
             </div>
             <div className='boxButtons'>

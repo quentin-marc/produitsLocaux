@@ -2,7 +2,7 @@ import './produit.css';
 
 import React, { useState } from 'react';
 
-const Produit = ({ donnees }) => {
+const Produit = ({ donnees, listeCourse, setListeCourse }) => {
     
     /*       Executable       */
     var style = {
@@ -19,7 +19,7 @@ const Produit = ({ donnees }) => {
             <div className='prix'>
                 <span>{donnees.price}</span> € / <span>{donnees.quantification}</span>
             </div>
-            <input className='quantiteProduit' type='number' min='0' defaultValue='0' onChange={e => setNbProduits(e.target.value)} ></input>
+            <input className='quantiteProduit' type='number' min='0' defaultValue='0' onChange={e => {setListeCourse({...listeCourse, [donnees.id] : e.target.value});setNbProduits(e.target.value)}} ></input>
         </div>
     );
 };

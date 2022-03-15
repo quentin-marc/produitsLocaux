@@ -1,14 +1,24 @@
 import './formulaireCreneaux.css';
 import axios from 'axios';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 
-const FormulaireCreneaux = ({ }) => {
+const formReducer = (state, event) => {
+    return {
+        ...state,
+        [event.name]: event.value
+    }
+}
+
+const FormulaireCreneaux = ({ listeCourse }) => {
     const [creneauSelectionne, setCreneauSelectionne] = useState({jour: -1, creneau: -1});
+
     const [listeCreneaux, setListeCreneaux] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [loadingValidationCommande, setValidationCommande] = useState(false);
+
+    const [formData, setFormData] = useReducer(formReducer, {});
+    const [submitting, setSubmitting] = useState(false);
     const [errorValidationCommande, setErrorValidationCommande] = useState(null);
 
 
@@ -17,34 +27,47 @@ const FormulaireCreneaux = ({ }) => {
         document.getElementById('formulaireCreneaux').style.display = "none";
     }
 
-    function validerCommande(e){
-        setValidationCommande(true);
-        const validerCommande = async () => {
-            try {
-                console.log(e)
-                const response = await axios.post(
-                    `http://127.0.0.1:3001/users`,
-                    {userEmail: "aa", userPhoneNumber: e.phone_in_talk}
-                );
-                
-                
-                // const response = await axios.post(
-                //     `http://127.0.0.1:3001/users/order`,
-                //     "data"
-                // );
+    const validerCommande = event => {
+        event.preventDefault();
+        setSubmitting(true);
+        console.log(Object.entries(formData));
+        console.log(listeCourse)
+        console.log(listeCreneaux[creneauSelectionne.jour].day)
+        console.log(listeCreneaux[creneauSelectionne.jour].slots[creneauSelectionne.creneau])
+        console.log(creneauSelectionne)
 
-                setErrorValidationCommande(null);
-                document.getElementById('formulaireProduits').style.display = "none";
-                document.getElementById('formulaireCreneaux').style.display = "none";
-                // Messsage Commande bien prise en compte, merci
-            } catch (err) {
-                setError(err.message);
-                setErrorValidationCommande(null);
-            } finally {
-                setLoading(false);
-            }
-        };
-        validerCommande();
+        // const validerCommande = async () => {
+        //     try {
+        //         console.log(e)
+        //         const response = await axios.post(
+        //             `http://127.0.0.1:3001/users`,
+        //             {userEmail: "aa", userPhoneNumber: e.phone_in_talk}
+        //         );
+                
+        //         // const response = await axios.post(
+        //         //     `http://127.0.0.1:3001/users/order`,
+        //         //     "data"
+        //         // );
+
+        //         setErrorValidationCommande(null);
+        //         document.getElementById('formulaireProduits').style.display = "none";
+        //         document.getElementById('formulaireCreneaux').style.display = "none";
+        //         // Messsage Commande bien prise en compte, merci
+        //     } catch (err) {
+        //         setError(err.message);
+        //         setErrorValidationCommande(null);
+        //     } finally {
+        //         setLoading(false);
+        //     }
+        // };
+        // validerCommande();
+    }
+
+    const handleChange = event => {
+        setFormData({
+          name: event.target.name,
+          value: event.target.value,
+        });
     }
 
     useEffect(() => {
@@ -87,9 +110,9 @@ const FormulaireCreneaux = ({ }) => {
             <div className='subtitle'>Ces informations seront seulement utilisées pour la gestion de cette commande. Elles ne seront pas utilisées à des fins publicitaires.</div>
             <div className='formBox'>
                 <span className="material-icons-outlined iconForm">email</span>
-                <input type='text' placeholder='benoit.dupont@gmail.com'></input>
+                <input name="mail" type='text' placeholder='benoit.dupont@gmail.com' onChange={handleChange}></input>
                 <span className="material-icons-outlined iconForm">phone_in_talk</span>
-                <input type='text' placeholder='06 34 52 12 13'></input>
+                <input name="phone" type='text' placeholder='06 34 52 12 13' onChange={handleChange}></input>
             </div>
             <div className='boxButtons'>
                 <button onClick={retourChoixProduits}>Choisir d'autres produits</button>
