@@ -4,12 +4,14 @@ const UserModel = require("../models/users");
 exports.newUser = async (req, res, next) => {
     try {
         let { userEmail, userPhoneNumber } = req.body;
-        console.log(req.body)
+        console.log([userEmail, userPhoneNumber])
 
         const newUser = await UserModel.create({
             userEmail,
             userPhoneNumber,
         });
+
+        console.log(newUser)
 
         res.status(201).json({
             success: true,

@@ -19,7 +19,10 @@ const Produit = ({ donnees, listeCourse, setListeCourse }) => {
             <div className='prix'>
                 <span>{donnees.price}</span> € / <span>{donnees.quantification}</span>
             </div>
-            <input className='quantiteProduit' type='number' min='0' defaultValue='0' onChange={e => {setListeCourse({...listeCourse, [donnees.id] : e.target.value});setNbProduits(e.target.value)}} ></input>
+            <input className='quantiteProduit' type='number' min='0' defaultValue='0' onChange={e => {
+                setListeCourse({...listeCourse, [donnees._id] : e.target.value});
+                setNbProduits(e.target.value)
+                }} ></input>
         </div>
     );
 };

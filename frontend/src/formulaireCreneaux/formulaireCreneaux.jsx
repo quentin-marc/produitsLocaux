@@ -2,6 +2,7 @@ import './formulaireCreneaux.css';
 import axios from 'axios';
 
 import React, { useEffect, useReducer, useState } from 'react';
+import Produit from '../formulaireProduits/produit/Produit';
 
 const formReducer = (state, event) => {
     return {
@@ -30,37 +31,46 @@ const FormulaireCreneaux = ({ listeCourse }) => {
     const validerCommande = event => {
         event.preventDefault();
         setSubmitting(true);
-        console.log(Object.entries(formData));
-        console.log(listeCourse)
-        console.log(listeCreneaux[creneauSelectionne.jour].day)
-        console.log(listeCreneaux[creneauSelectionne.jour].slots[creneauSelectionne.creneau])
-        console.log(creneauSelectionne)
+        var creneau = listeCreneaux[creneauSelectionne.jour];
+        var date = [creneau.day,creneau.date,creneau.slots[creneauSelectionne.creneau]].join(" - ");
+        var products = Object.entries(listeCourse).map((k,v) => {return {product: k[0], occurences: k[1]}})
+        console.log(products)
 
-        // const validerCommande = async () => {
-        //     try {
-        //         console.log(e)
-        //         const response = await axios.post(
-        //             `http://127.0.0.1:3001/users`,
-        //             {userEmail: "aa", userPhoneNumber: e.phone_in_talk}
-        //         );
+        const validerCommande = async () => {
+            try {
+                var dataUser = {
+                    userEmail: formData.mail,
+                    userPhoneNumber: formData.phone
+                }
+                var response = await axios.post(`http://127.0.0.1:3001/users`, dataUser);
+                console.log(response)
+
+                var dataOrder = {
+                    userId: response.data.data._id,
+                    pickupDate: date,
+                    products: products
+                }
+                response = await axios.post(`http://127.0.0.1:3001/users/order`, dataOrder);
+                console.log(response)
                 
-        //         // const response = await axios.post(
-        //         //     `http://127.0.0.1:3001/users/order`,
-        //         //     "data"
-        //         // );
+                // const response = await axios.post(
+                //     `http://127.0.0.1:3001/users/order`,
+                //     "data"
+                // );
 
-        //         setErrorValidationCommande(null);
-        //         document.getElementById('formulaireProduits').style.display = "none";
-        //         document.getElementById('formulaireCreneaux').style.display = "none";
-        //         // Messsage Commande bien prise en compte, merci
-        //     } catch (err) {
-        //         setError(err.message);
-        //         setErrorValidationCommande(null);
-        //     } finally {
-        //         setLoading(false);
-        //     }
-        // };
-        // validerCommande();
+                setErrorValidationCommande(null);
+                document.getElementById('formulaireProduits').style.display = "none";
+                document.getElementById('formulaireCreneaux').style.display = "none";
+                // Messsage Commande bien prise en compte, merci
+            } catch (err) {
+                setError(err.message);
+                setErrorValidationCommande(null);
+            } finally {
+                setSubmitting(false);
+            }
+        };
+
+        validerCommande();
     }
 
     const handleChange = event => {
