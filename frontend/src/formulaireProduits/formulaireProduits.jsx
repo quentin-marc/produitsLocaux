@@ -36,7 +36,7 @@ const FormulaireProduits = ({listeCourse, setListeCourse}) => {
     return(
         <div id='formulaireProduits'>
             <h1>Commandez vos produits locaux depuis chez vous</h1>
-            <div className='subtitle'>Bienvenue sur NOM SITE, nous sommes <a href='#footer'>une petite équipe d’ingénieurs</a> voulant aider à (re)développer les circuits courts. Ce drive vient juste de naitre, le projet va s'améliorer progressivement.</div>
+            <div className='subtitle'>Bienvenue, nous sommes <a href='#footer'>une petite équipe d’ingénieurs</a> voulant aider à (re)développer les circuits courts. Ce "drive de produits locaux" vient juste de naître, le projet va s'améliorer progressivement.</div>
             <div id="nosProduits">
                 {!listeProduits ? null : listeProduits.map((produit, i) => {       
                     return (<Produit donnees={produit} key={i} listeCourse={listeCourse} setListeCourse={setListeCourse}/>) 
