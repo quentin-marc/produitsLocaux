@@ -1,0 +1,8 @@
+#confirmationCommande{
+    display: none;
+}
+
+
+#confirmationCommande > h2 {
+    text-align: center;
+}

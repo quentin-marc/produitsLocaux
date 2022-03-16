@@ -54,6 +54,7 @@ const FormulaireCreneaux = ({ listeCourse }) => {
                 document.getElementById('formulaireProduits').style.display = "none";
                 document.getElementById('formulaireCreneaux').style.display = "none";
                 // Messsage Commande bien prise en compte, merci
+                document.getElementById('confirmationCommande').style.display = "block";
             } catch (err) {
                 setError(err.message);
                 setErrorValidationCommande(null);
@@ -109,7 +110,7 @@ const FormulaireCreneaux = ({ listeCourse }) => {
                 })}
             </div>
             <h1>Comment pouvons-nous vous contacter ?</h1>
-            <div className='subtitle'>Ces informations seront seulement utilisées pour la gestion de cette commande. Elles ne seront pas utilisées à des fins publicitaires. Vous pouvez nous joindre au 06 51 33 16 99.</div>
+            <div className='subtitle'>Ces informations seront seulement utilisées pour la gestion de cette commande. Elles ne seront pas utilisées à des fins publicitaires. Vous pouvez nous joindre au 07 69 96 68 70.</div>
             <div className='formBox'>
                 <span className="material-icons-outlined iconForm">email</span>
                 <input name="mail" type='text' placeholder='benoit.dupont@gmail.com' onChange={handleChange}></input>
