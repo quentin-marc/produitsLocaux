@@ -106,7 +106,7 @@ a:hover{
   text-decoration: underline;
 }
 
-@media all and (max-width: 400px){
+@media all and (max-width: 450px){
 
   #mainContener{
     width: 95%;

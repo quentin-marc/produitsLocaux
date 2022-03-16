@@ -34,7 +34,7 @@
     background: var(--bgMain);
 }
 
-@media all and (max-width: 400px){
+@media all and (max-width: 450px){
 
     .produit{
         width: 40%;

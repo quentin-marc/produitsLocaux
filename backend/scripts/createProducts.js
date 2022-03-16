@@ -17,7 +17,7 @@ const products = [
         id: "panier de produits locaux (fruits et légumes, 2p/1sem)",
         price: 20,
         quantification: "unité",
-        image: "?"
+        image: "panier.svg"
     },
     {
         id: "lait cru",
@@ -131,7 +131,7 @@ const products = [
         id: "confiture",
         price: 3.6,
         quantification: "unité",
-        image: "?"
+        image: "confiture.svg"
     },
 ];
 

@@ -44,7 +44,7 @@
     margin-bottom: 70px;
 }
 
-@media all and (max-width: 400px){
+@media all and (max-width: 450px){
 
     .formBox{
         margin-top: -10px;
