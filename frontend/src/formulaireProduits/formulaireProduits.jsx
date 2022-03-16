@@ -33,7 +33,7 @@ const FormulaireProduits = ({listeCourse, setListeCourse}) => {
         };
         getListeProduits();
     }, []);
-
+    console.log(listeProduits)
     return(
         <div id='formulaireProduits'>
             <h1>Commandez vos produits locaux depuis chez vous</h1>
@@ -43,7 +43,7 @@ const FormulaireProduits = ({listeCourse, setListeCourse}) => {
                     return (<Produit donnees={produit} key={i} listeCourse={listeCourse} setListeCourse={setListeCourse}/>) 
                 })}
             </div>
-            <h1>Total commande: 250€</h1>
+            {!listeProduits ? null : (<h1>Total commande: {Math.round((listeProduits.map(e => listeCourse[e._id]*e.price || 0)).reduce((a,b) => a+b, 0)*100)/100}€</h1>) }
             <div className='boxButtons'>
                 <button onClick={etapeSuivante}>Choisir un créneau</button>
             </div>
