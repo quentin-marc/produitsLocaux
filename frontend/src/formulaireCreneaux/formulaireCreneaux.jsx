@@ -34,7 +34,6 @@ const FormulaireCreneaux = ({ listeCourse }) => {
         var creneau = listeCreneaux[creneauSelectionne.jour];
         var date = [creneau.day,creneau.date,creneau.slots[creneauSelectionne.creneau]].join(" - ");
         var products = Object.entries(listeCourse).map((k,v) => {return {product: k[0], occurences: k[1]}})
-        console.log(products)
 
         const validerCommande = async () => {
             try {
@@ -43,7 +42,6 @@ const FormulaireCreneaux = ({ listeCourse }) => {
                     userPhoneNumber: formData.phone
                 }
                 var response = await axios.post(`http://127.0.0.1:3001/users`, dataUser);
-                console.log(response)
 
                 var dataOrder = {
                     userId: response.data.data._id,
@@ -51,13 +49,7 @@ const FormulaireCreneaux = ({ listeCourse }) => {
                     products: products
                 }
                 response = await axios.post(`http://127.0.0.1:3001/users/order`, dataOrder);
-                console.log(response)
                 
-                // const response = await axios.post(
-                //     `http://127.0.0.1:3001/users/order`,
-                //     "data"
-                // );
-
                 setErrorValidationCommande(null);
                 document.getElementById('formulaireProduits').style.display = "none";
                 document.getElementById('formulaireCreneaux').style.display = "none";
@@ -117,7 +109,7 @@ const FormulaireCreneaux = ({ listeCourse }) => {
                 })}
             </div>
             <h1>Comment pouvons-nous vous contacter ?</h1>
-            <div className='subtitle'>Ces informations seront seulement utilisées pour la gestion de cette commande. Elles ne seront pas utilisées à des fins publicitaires.</div>
+            <div className='subtitle'>Ces informations seront seulement utilisées pour la gestion de cette commande. Elles ne seront pas utilisées à des fins publicitaires. Vous pouvez nous joindre au 06 51 33 16 99.</div>
             <div className='formBox'>
                 <span className="material-icons-outlined iconForm">email</span>
                 <input name="mail" type='text' placeholder='benoit.dupont@gmail.com' onChange={handleChange}></input>
