@@ -50,4 +50,9 @@
         margin-top: -10px;
         margin-bottom: 50px;
     }
+
+    #creneauxRecuperation{
+        overflow: auto;
+        padding-left: 200px;
+    }
 }

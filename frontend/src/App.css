@@ -109,6 +109,7 @@ a:hover{
 @media all and (max-width: 450px){
 
   #mainContener{
+    padding-top: var(--espaceIntermediaire);
     width: 95%;
     margin: auto;
   }

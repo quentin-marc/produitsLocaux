@@ -5,6 +5,7 @@ import Produit from './produit/Produit.jsx';
 import React, { useState, useEffect } from 'react';
 
 const FormulaireProduits = ({listeCourse, setListeCourse}) => {
+    console.log(listeCourse)
     const [listeProduits, setListeProduits] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
