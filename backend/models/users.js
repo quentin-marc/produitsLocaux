@@ -27,7 +27,8 @@ const UserSchema = new mongoose.Schema({
                 {
                     product: {
                         type: mongoose.Schema.ObjectId,
-                        ref: "Product"
+                        ref: "Product",
+                        required: [true, "Please provide the order's products list"]
                     },
                     occurences: {
                         type: Number,
