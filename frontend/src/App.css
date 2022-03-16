@@ -10,6 +10,7 @@
   --espaceMin: 5px;
   --espacePetit: 10px;
   --espaceNormal: 15px;
+  --espaceIntermediaire: 25px;
   --espaceGrand: 50px;
   --espaceMax: 100px;
 
@@ -18,6 +19,8 @@
   --radiusMax: 25px;
 
   --sizeImportant: 20px;
+  --sizeH1Mobile: 27px;
+  --sizeNormal: 18px;
 }
 
 body{
@@ -101,4 +104,46 @@ a{
 
 a:hover{
   text-decoration: underline;
+}
+
+@media all and (max-width: 400px){
+
+  #mainContener{
+    width: 95%;
+    margin: auto;
+  }
+
+  h1{
+    margin: var(--espaceGrand) auto var(--espaceIntermediaire);;
+    text-align: center;
+    font-size: var(--sizeH1Mobile);
+    width: 90%;
+    display: block;
+  }
+
+  .subtitle{
+    width: 90%;
+    margin: auto;
+    margin-bottom: var(--espaceGrand);
+  }
+
+  input[type=text]{
+    font-size: var(--sizeNormal);
+    width: 75%;
+    padding: var(--espacePetit) var(--espaceNormal);
+    margin: var(--espaceNormal) auto;
+  }
+
+  button{
+    margin-bottom: var(--espaceNormal);
+  }
+
+  .boxButtons{
+    margin: var(--espaceGrand) 0;
+    flex-wrap: wrap-reverse;
+  }
+
+  .iconForm{
+    display: none;
+  }
 }

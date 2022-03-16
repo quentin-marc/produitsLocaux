@@ -22,3 +22,25 @@ footer{
 .nomCreateur{
     margin-top: var(--espacePetit);
 }
+
+@media all and (max-width: 400px){
+
+    footer{
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .photoCreateur{
+        width: 80px;
+        height: 80px;
+    }
+
+    .createurs{
+        flex-wrap: wrap;
+    }
+
+    .createur{
+        margin: var(--espaceNormal);
+    }
+}

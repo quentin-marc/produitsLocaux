@@ -68,14 +68,14 @@ const FormulaireCreneaux = ({ listeCourse }) => {
 
     const handleChange = event => {
         setFormData({
-          name: event.target.name,
-          value: event.target.value,
+            name: event.target.name,
+            value: event.target.value,
         });
     }
 
     useEffect(() => {
         const getListeCreneaux = async () => {
-          try {
+        try {
                 const response = await axios.get(
                     `http://127.0.0.1:3001/slots`
                 );
@@ -110,7 +110,7 @@ const FormulaireCreneaux = ({ listeCourse }) => {
                 })}
             </div>
             <h1>Comment pouvons-nous vous contacter ?</h1>
-            <div className='subtitle'>Ces informations seront seulement utilisées pour la gestion de cette commande. Elles ne seront pas utilisées à des fins publicitaires. Vous pouvez nous joindre au 06 51 33 16 99.</div>
+            <div className='subtitle'>Ces informations seront utilisées pour la gestion de cette commande. Elles ne seront pas utilisées à des fins publicitaires. Vous pouvez nous joindre au 06 51 33 16 99.</div>
             <div className='formBox'>
                 <span className="material-icons-outlined iconForm">email</span>
                 <input name="mail" type='text' placeholder='benoit.dupont@gmail.com' onChange={handleChange}></input>

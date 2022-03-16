@@ -33,3 +33,22 @@
     height: 50px;
     background: var(--bgMain);
 }
+
+@media all and (max-width: 400px){
+
+    .produit{
+        width: 40%;
+        margin: var(--espacePetit);
+        padding: var(--espaceMin);
+    }
+
+    .nomProduit{
+        font-size: var(--sizeNormal);
+    }
+
+    .imageProduit{
+        height: 140px;
+        width: 100px;
+        margin: auto;
+    }
+}
