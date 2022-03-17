@@ -78,3 +78,10 @@ Made with npm v16.13.2
 Do not forget to `npm i` and to install mongoDB.
 
 In the project directory run: `npm start`. The server is then listening at http://localhost:3001.
+
+## DEPLOYMENT
+
+docker build -f Dockerfile.prod -t sample:front_prod .
+
+docker save sample:front_prod | bzip2 | \
+   ssh user@host 'bunzip2 | docker load'

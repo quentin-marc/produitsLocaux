@@ -1,0 +1,42 @@
+version: '3.7'
+
+services:
+  back:
+    image: sample:back_prod
+    container_name: pl_back
+    ports:
+      - "8005:3001"
+    environment:
+      - DB_URL=mongodb://mongo/produitsLocaux
+    depends_on:
+      - mongo
+    networks:
+      - pl-network
+
+  mongo:
+    image: mongo
+    container_name: pl_db
+    ports:
+      - "27017:27017"
+    networks:
+      - pl-network
+
+  front:
+    image: sample:front_prod
+    container_name: pl_front
+    ports:
+      - "8004:80"
+    depends_on:
+      - back
+    networks:
+      - pl-network
+
+networks:
+    pl-network:
+        driver: bridge
+
+volumes:
+    data-volume:
+    node_modules:
+    web-root:
+      driver: local

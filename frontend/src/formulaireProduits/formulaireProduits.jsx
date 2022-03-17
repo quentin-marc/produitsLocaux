@@ -1,5 +1,5 @@
 import './formulaireProduits.css';
-import axios from "axios"
+import axios from "../axios-instance"
 import Produit from './produit/Produit.jsx';
 
 import React, { useState, useEffect } from 'react';
@@ -18,8 +18,9 @@ const FormulaireProduits = ({listeCourse, setListeCourse}) => {
     useEffect(() => {
         const getListeProduits = async () => {
         try {
+                console.log(process.env)
                 const response = await axios.get(
-                    `http://127.0.0.1:3001/products`
+                    `products`
                 );
                 setListeProduits(response.data.data);
                 setError(null);

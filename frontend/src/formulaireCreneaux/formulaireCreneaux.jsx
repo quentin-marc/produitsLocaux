@@ -1,5 +1,5 @@
 import './formulaireCreneaux.css';
-import axios from 'axios';
+import axios from '../axios-instance';
 
 import React, { useEffect, useReducer, useState } from 'react';
 import Produit from '../formulaireProduits/produit/Produit';
@@ -41,14 +41,14 @@ const FormulaireCreneaux = ({ listeCourse }) => {
                     userEmail: formData.mail,
                     userPhoneNumber: formData.phone
                 }
-                var response = await axios.post(`http://127.0.0.1:3001/users`, dataUser);
+                var response = await axios.post(`users`, dataUser);
 
                 var dataOrder = {
                     userId: response.data.data._id,
                     pickupDate: date,
                     products: products
                 }
-                response = await axios.post(`http://127.0.0.1:3001/users/order`, dataOrder);
+                response = await axios.post(`users/order`, dataOrder);
                 
                 setErrorValidationCommande(null);
                 document.getElementById('formulaireProduits').style.display = "none";
@@ -76,9 +76,7 @@ const FormulaireCreneaux = ({ listeCourse }) => {
     useEffect(() => {
         const getListeCreneaux = async () => {
         try {
-                const response = await axios.get(
-                    `http://127.0.0.1:3001/slots`
-                );
+                const response = await axios.get(`slots`);
                 setListeCreneaux(response.data.data);
                 setError(null);
             } catch (err) {
