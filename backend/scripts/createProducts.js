@@ -86,7 +86,7 @@ const products = [
         image: "pdt.svg"
     },
     {
-        id: "radi",
+        id: "radis",
         price: 1.6,
         quantification: "botte",
         image: "radis.svg"
