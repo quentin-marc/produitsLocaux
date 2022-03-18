@@ -14,7 +14,7 @@ const { connect } = require('http2');
 const connectDB = require('./config/db.js');
 
 var corsOptions = {
-  origin: ['http://127.0.0.1:3000','http://localhost:3000','http://api.lowympact.fr'],
+  origin: ['http://127.0.0.1:3000','http://localhost:3000','http://local.lowympact.fr'],
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
