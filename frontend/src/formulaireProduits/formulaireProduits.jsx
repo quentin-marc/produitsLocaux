@@ -18,7 +18,6 @@ const FormulaireProduits = ({listeCourse, setListeCourse}) => {
     useEffect(() => {
         const getListeProduits = async () => {
         try {
-                console.log(process.env)
                 const response = await axios.get(
                     `products`
                 );

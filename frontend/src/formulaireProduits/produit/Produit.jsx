@@ -6,7 +6,7 @@ const Produit = ({ donnees, listeCourse, setListeCourse }) => {
     
     /*       Executable       */
     var style = {
-        background: 'center / cover no-repeat url("http://localhost:3000/images/'+donnees.image+'")'
+        background: 'center / cover no-repeat url("./images/'+donnees.image+'")'
     };
 
     const [nbProduits, setNbProduits] = useState(0);
